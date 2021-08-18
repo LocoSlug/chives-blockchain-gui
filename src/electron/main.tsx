@@ -407,7 +407,13 @@ if (!handleSquirrelEvent()) {
           {
             label: i18n._(/* i18n */ { id: 'Discord' }),
             click: () => {
-              openExternal('https://discord.gg/uMmcjzjRx2');
+              openExternal('https://discord.com/invite/9aAbYNqjtA');
+            },
+          },
+          {
+            label: i18n._(/* i18n */ { id: 'Exchange' }),
+            click: () => {
+              openExternal('https://chivescoin.net');
             },
           },
         ],

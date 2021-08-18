@@ -739,6 +739,10 @@ msgstr "Follow on Twitter"
 msgid "Discord"
 msgstr "Discord"
 
+#: src/electron/main.tsx:415
+msgid "Exchange"
+msgstr "Exchange"
+
 #: src/electron/main.tsx:318
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
