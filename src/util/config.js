@@ -10,8 +10,8 @@ global.daemon_rpc_ws = `wss://${self_hostname}:56900`;
 global.cert_path = 'config/ssl/daemon/private_daemon.crt';
 global.key_path = 'config/ssl/daemon/private_daemon.key';
 
-function loadConfig(version) {
-  // try {
+function loadConfig(net) {
+  try {
     // finding the right config file uses this precedence
     // 1) CHIVES_ROOT environment variable
     // 2) version passed in and determined by the `chives version` call
@@ -20,7 +20,7 @@ function loadConfig(version) {
     const config_root_dir =
       'CHIVES_ROOT' in process.env
         ? process.env.CHIVES_ROOT
-        : path.join(os.homedir(), '.chives', version);
+        : path.join(os.homedir(), '.chives', net);
     const config = yaml.load(
       fs.readFileSync(path.join(config_root_dir, 'config/config.yaml'), 'utf8'),
     );
@@ -46,9 +46,9 @@ function loadConfig(version) {
         'config/ssl/daemon/private_daemon.key',
       ),
     ); // jshint ignore:line
-  // } catch (e) {
-  //  console.log('Error loading config - using defaults');
-  // }
+  } catch (e) {
+    console.log('Error loading config - using defaults');
+  }
 }
 
 function manageDaemonLifetime() {

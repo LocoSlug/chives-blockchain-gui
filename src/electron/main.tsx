@@ -110,7 +110,7 @@ if (!handleSquirrelEvent()) {
   // if any of these checks return false, don't do any other initialization since the app is quitting
   if (ensureSingleInstance() && ensureCorrectEnvironment()) {
     // this needs to happen early in startup so all processes share the same global config
-    chivesConfig.loadConfig(chivesEnvironment.getChivesVersion());
+    chivesConfig.loadConfig('mainnet');
     global.sharedObj = { local_test };
 
     const exitPyProc = (e) => {};
@@ -169,7 +169,7 @@ if (!handleSquirrelEvent()) {
       });
 
       // don't show remote daemon detials in the title bar
-      if (chivesConfig.manageDaemonLifetime()) {
+      if (!chivesConfig.manageDaemonLifetime()) {
         mainWindow.webContents.on('did-finish-load', () => {
           mainWindow.setTitle(`${app.getName()} [${global.daemon_rpc_ws}]`);
         });
