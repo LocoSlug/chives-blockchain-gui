@@ -168,7 +168,7 @@ if (!handleSquirrelEvent()) {
         mainWindow.show();
       });
 
-      // don't show remote daeomn detials in the title bar
+      // don't show remote daemon detials in the title bar
       if (chivesConfig.manageDaemonLifetime()) {
         mainWindow.webContents.on('did-finish-load', () => {
           mainWindow.setTitle(`${app.getName()} [${global.daemon_rpc_ws}]`);
