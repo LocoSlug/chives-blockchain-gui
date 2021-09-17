@@ -11,7 +11,7 @@ global.cert_path = 'config/ssl/daemon/private_daemon.crt';
 global.key_path = 'config/ssl/daemon/private_daemon.key';
 
 function loadConfig(version) {
-  try {
+  // try {
     // finding the right config file uses this precedence
     // 1) CHIVES_ROOT environment variable
     // 2) version passed in and determined by the `chives version` call
@@ -46,9 +46,9 @@ function loadConfig(version) {
         'config/ssl/daemon/private_daemon.key',
       ),
     ); // jshint ignore:line
-  } catch (e) {
-    console.log('Error loading config - using defaults');
-  }
+  // } catch (e) {
+  //  console.log('Error loading config - using defaults');
+  // }
 }
 
 function manageDaemonLifetime() {
