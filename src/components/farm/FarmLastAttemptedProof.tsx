@@ -37,7 +37,7 @@ export default function FarmLastAttemptedProof() {
   const { size } = usePlots();
 
   const lastAttemtedProof = useSelector((state: RootState) => state.farming_state.farmer.last_farming_info ?? []);
-  const reducedLastAttemtedProof = lastAttemtedProof.slice(0, 5);
+  const reducedLastAttemtedProof = lastAttemtedProof.slice(0, 10);
   const isEmpty = !reducedLastAttemtedProof.length;
 
   return (
